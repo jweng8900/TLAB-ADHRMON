@@ -8,7 +8,16 @@ def filter_nondigits(data: list) -> list:
     Returns:
         list[int]: list of integers, with all non-digit strings removed
     """
-    pass
+    number_list=[]
+
+    for k in data:
+        k=k.strip()
+
+        if (k.isdigit()):
+            
+            number_list.append(int(k))
+
+    return number_list
 
 
 def filter_outliers(data: list) -> list:
