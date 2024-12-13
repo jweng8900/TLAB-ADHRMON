@@ -21,4 +21,10 @@ def filter_nondigits(data: list) -> list:
 
 
 def filter_outliers(data: list) -> list:
-    pass
+    filtered_nums=[]
+
+    for k in data:
+        if(k>30 and k<250):
+            filtered_nums.append(k)
+
+    return filtered_nums
