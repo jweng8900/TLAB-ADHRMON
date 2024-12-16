@@ -8,13 +8,24 @@ def window_max(data: list, n: int) -> list:
     Returns:
         list[int]: list of maximums from each window (size should be len(data)//6)
     """
+    oulst=[]
+
+    size=len(data)
+
+
     if(len(data)==0):
-        return []
+     print("empty")
     else:
-        for k in range(len(data//6)):
-            print(data[k])
-    maximums = []
-    ...
+        for i in range(0,(size-(size%n)),n):
+            for k in range(i,i+n):
+                max=data[i]
+                if(data[k]>=max):
+                    max=data[k]
+            oulst.append(max)   
+    
+        for l in range((size-(size%n)),size):
+            oulst.append(data[l])
+    return oulst
 
 
 def window_average(data: list, n: int) -> list:
