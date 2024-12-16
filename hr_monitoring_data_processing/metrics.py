@@ -12,25 +12,30 @@ def window_max(data: list, n: int) -> list:
 
     size=len(data)
 
+    for k in range(0,size,n):
+        temp=data[k:k+n]
+        oulst.append(max(temp))
 
-    if(len(data)==0):
-     print("empty")
-    else:
-        for i in range(0,(size-(size%n)),n):
-            for k in range(i,i+n):
-                max=data[i]
-                if(data[k]>=max):
-                    max=data[k]
-            oulst.append(max)   
+    return oulst
+
+def window_average(data: list, n: int) -> list:
+    oulst=[]
+
+    size=len(data)
+
+    for k in range(0,size-(size%n),n):
+        temp=data[k:k+n]
+        oulst.append(sum(temp)/n)
+
+
+    if(size%n >=1):
+        temp_last=data[size-(size%n):size]
+        temp_length=len(temp_last)
+        oulst.append(sum(temp_last)/temp_length)
     
-        for l in range((size-(size%n)),size):
-            oulst.append(data[l])
     return oulst
 
 
-def window_average(data: list, n: int) -> list:
-    pass
-
-
 def window_stddev(data: list, n: int) -> list:
+    
     pass
