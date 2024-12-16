@@ -8,6 +8,11 @@ def window_max(data: list, n: int) -> list:
     Returns:
         list[int]: list of maximums from each window (size should be len(data)//6)
     """
+    if(len(data)==0):
+        return []
+    else:
+        for k in range(len(data//6)):
+            print(data[k])
     maximums = []
     ...
 

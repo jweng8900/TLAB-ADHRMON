@@ -33,7 +33,12 @@ def run(filename: str) -> None:
     data = []
 
     # open file and read into the `data` list
-    ...
+    file = open(filename)
+    for line in file:
+        data.append(line)
+
+    print(data)
+
 
     # return all 3 lists
     ...

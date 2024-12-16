@@ -10,6 +10,9 @@ def filter_nondigits(data: list) -> list:
     """
     number_list=[]
 
+    if(len(data)==0):
+        return []
+    
     for k in data:
         k=k.strip()
 
