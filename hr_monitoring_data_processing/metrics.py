@@ -26,13 +26,13 @@ def window_average(data: list, n: int) -> list:
 
     for k in range(0,size-(size%n),n):
         temp=data[k:k+n]
-        oulst.append(sum(temp)/n)
+        oulst.append(round(sum(temp)/n,2))
 
 
     if(size%n >=1):
         temp_last=data[size-(size%n):size]
         temp_length=len(temp_last)
-        oulst.append(sum(temp_last)/temp_length)
+        oulst.append(round(sum(temp_last)/temp_length,2))
     
     return oulst
 
@@ -71,6 +71,6 @@ def window_stddev(data: list, n: int) -> list:
     if((size%n)>1):
         left_over=(data[size-size%n:])
         left_over_std=(np.std(data[size-size%n:],ddof=1))
-        oulst.append(left_over_std)
+        oulst.append(round(left_over_std,2))
 
     return oulst

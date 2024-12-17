@@ -37,10 +37,21 @@ def run(filename: str) -> None:
     for line in file:
         data.append(line)
 
-    print(data)
+    #using the filter_nondigits to clean data
+    data=filter_nondigits(data)
+    
+    #using the filter_outliers to clean data
+    data=filter_outliers(data)
+    print((data))
 
+    #print rolling maxes for data with window size 6
+    print("Rolling Maxium: ", window_max(data,6))
 
-    # return all 3 lists
+    #print rolling averages for data with window size 6
+    print("Rolling Average: ", window_average(data,6))
+  
+    #print rolling standard deviation for data with window size 6
+    print("Rolling Standard Deviation: ", window_stddev(data,6))
     ...
 
 
