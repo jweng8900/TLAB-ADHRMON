@@ -38,14 +38,6 @@ def window_average(data: list, n: int) -> list:
 
 
 def window_stddev(data: list, n: int) -> list:
-    """
-    Calculate the standard deviation for non-overlapping windows of size `n`.
-    If any window has fewer than 2 elements, return an empty list.
-    
-    :param data: List of numerical values.
-    :param n: Size of each window.
-    :return: List of standard deviations for each window or an empty list.
-    """
     oulst = []
     size = len(data)
     
