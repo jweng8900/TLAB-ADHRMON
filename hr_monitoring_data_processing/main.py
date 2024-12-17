@@ -7,7 +7,7 @@ from metrics import window_max, window_average, window_stddev
 from cleaner import filter_nondigits, filter_outliers
 
 import matplotlib.pyplot as plt
-
+import os.path
 
 def run(filename: str) -> None:
     """
@@ -44,16 +44,27 @@ def run(filename: str) -> None:
     data=filter_outliers(data)
     print((data))
 
-    #print rolling maxes for data with window size 6
-    print("Rolling Maxium: ", window_max(data,6))
+    #creating the images for maximums
+    maximums = window_max(data, 6)
+    fig, ax = plt.subplots()
+    ax.plot(maximums)
+    plt.savefig("images/maximums.png")
 
-    #print rolling averages for data with window size 6
-    print("Rolling Average: ", window_average(data,6))
-  
-    #print rolling standard deviation for data with window size 6
-    print("Rolling Standard Deviation: ", window_stddev(data,6))
-    ...
+    #creating the images for averages
+    averages = window_average(data, 6)
+    fig,ax = plt.subplots()
+    ax.plot(averages)
+    plt.savefig("images/averages.png")
 
+    #creating the images for stdevs
+    stdevs = window_stddev(data, 6)
+    fig,ax = plt.subplots()
+    ax.plot(stdevs)
+    plt.savefig("images/stdevs.png")
+   
+    if __name__ == "__main__":
+        run("data/data1.txt")
+    
+    return maximums, averages, stdevs
 
-if __name__ == "__main__":
-    run("data/data1.txt")
+    
